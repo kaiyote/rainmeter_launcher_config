@@ -1,0 +1,14 @@
+{
+  "name": "rainmeter_launcher_config",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kaiyote/rainmeter_launcher_config",
+  "authors": [
+    "Tim Huddle <blazhen88@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "components-underscore": "~1.7.0",
+    "mithril": "~0.1.22"
+  }
+}
