@@ -14,11 +14,7 @@ exports.config =
         'js/vendor.js': /^bower_components/
     stylesheets:
       joinTo:
-        'css/app_dark.css': /^(app[\/\\]styles[\/\\]dark)/
-        'css/app_light.css': /^(app[\/\\]styles[\/\\]light)/
+        'css/app.css': /^(app[\/\\]styles[\/\\])/
   plugins:
     jade:
       pretty: yes # Adds pretty-indentation whitespaces to output (false by default)
-    assetsmanager:
-      copyTo:
-        'js/ace': ['bower_components/ace-builds/src-min-noconflict/worker*']

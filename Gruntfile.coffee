@@ -11,33 +11,6 @@ module.exports = (grunt) ->
         linux32: no
         linux64: no
       src: './_public/**/*'
-    coffee:
-      test:
-        options:
-          bare: yes
-          sourceMap: no
-        expand: yes
-        src: ['test/e2e/**/*.coffee']
-        ext: '.js'
-    clean:
-      test:
-        src: ['test/e2e/**/*.js', 'settings', 'fonts']
-    copy:
-      test:
-        files: [
-          expand: yes
-          cwd: 'app/assets/fonts/'
-          src: ['**']
-          dest: 'fonts/'
-        ,
-          expand: yes
-          cwd: 'app/assets/settings/'
-          src: ['**']
-          dest: 'settings/'
-        ]
 
   grunt.loadNpmTasks 'grunt-node-webkit-builder'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.registerTask 'default', ['nodewebkit']
