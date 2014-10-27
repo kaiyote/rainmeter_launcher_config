@@ -1,0 +1,175 @@
+@require '_functions'
+@require '_mixins'
+@require '_variables'
+
+.hidden
+  display none
+  
+ul.unstyled
+  list-style-type none
+  margin 0
+  padding 0
+  
+input, select, button
+  background background
+  color foreground
+  border 1px solid bordercolor
+  
+  &:focus
+    outline none
+    
+button:hover
+  background bordercolor
+  
+button:active
+  background darken(bordercolor, 20%)
+
+html
+  height 100%
+  color foreground !important
+
+body
+  display flex
+  flex 0 0 auto
+  flex-direction column
+  margin 0
+  padding 0
+  font-family 'Segoe UI'
+  border 1px solid bordercolor
+  height 100%
+  overflow hidden
+  background background
+  
+  .ctrlbar
+    display flex
+    flex 0 0 20px
+    flex-direction row
+    justify-content space-between
+    align-items center
+    -webkit-app-region drag
+    background background
+    border-bottom 1px solid bordercolor
+    
+    .close
+      margin-right .5rem
+      padding-bottom .3rem
+      cursor pointer
+      -webkit-app-region no-drag
+      font-size 1.1rem
+      font-weight bold
+      line-height .8rem
+      
+    .title
+      font-size .9rem
+      font-weight bold
+      line-height .8rem
+      margin-left .5rem
+      
+  .tabs
+    display flex
+    flex 0 0 25px
+    flex-direction row
+    justify-content space-between
+    border-bottom 1px solid bordercolor
+    
+    .tab
+      display flex
+      flex 1 0 auto
+      justify-content center
+      width 24.6%
+      cursor pointer
+      text-decoration none
+      color foreground
+      border-left 1px solid bordercolor
+      border-right 1px solid bordercolor
+      
+      &.active
+        background bordercolor
+        
+  .content
+    padding .5rem
+    flex 1 0 auto
+    
+  label
+    display flex
+    flex 0 0 25px
+    
+    div
+      flex 0 0 auto
+      width 75px
+      
+    input, select
+      flex 1 1 auto
+      margin-right .7rem
+      margin-left .7rem
+      margin-bottom .2rem
+      
+    span
+      flex 0 0 auto
+      
+      &.short
+        width 50px
+        
+      &.long
+        width 186px
+        
+  .flexrow
+    display flex
+    flex 0 0 auto
+    flex-flow row
+    justify-content space-between
+    
+    label
+      flex 1 0 25px
+      
+    button
+      flex 0 0 auto
+      width 75px
+      
+    input
+      flex 1 0 auto
+      
+  .listContainer
+    height 168px
+    overflow-y auto
+    font-size 13px
+    border-right 1px solid bordercolor
+    margin -0.5rem 0 -0.5rem -0.5rem
+    
+    li
+      cursor pointer
+      
+      &.focused
+        background bordercolor
+        
+  .editContainer
+    height 152px
+    font-size 13px
+    margin-left 0.5rem
+    flex 1 0 auto
+    
+    span
+      margin-right 0.5rem
+    
+::-webkit-scrollbar
+  width 15px
+  height 15px
+  
+::-webkit-scrollbar-button
+  height 0px
+  width 0px
+
+::-webkit-scrollbar-track
+  background-color transparent
+
+::-webkit-scrollbar-thumb
+  background-color darken(#eee, 25%)
+  border 3px solid transparent
+  border-radius 6px
+  background-clip content-box
+
+  &:hover
+    background-color darken(#eee, 35%)
+    
+::-webkit-scrollbar-corner
+  background-color transparent

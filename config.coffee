@@ -1,4 +1,5 @@
 exports.config =
+  # See docs at http://brunch.readthedocs.org/en/latest/config.html.
   conventions:
     assets: /^app[\/\\]+assets[\/\\]+/
     ignored: /^(app[\/\\]+styles[\/\\]+overrides|(.*?[\/\\]+)?[_]\w*)/
@@ -6,7 +7,7 @@ exports.config =
     definition: false
     wrapper: false
   paths:
-    'public': '_public'
+    public: '_public'
   files:
     javascripts:
       joinTo:
@@ -14,7 +15,14 @@ exports.config =
         'js/vendor.js': /^bower_components/
     stylesheets:
       joinTo:
-        'css/app.css': /^(app[\/\\]styles[\/\\])/
+        'css/app.css': /^(app|vendor|bower_components)/
+      order:
+        # make sure custom css comes after bootstrap, etc
+        after: [
+          'app/styles/app.styl'
+        ]
   plugins:
     jade:
       pretty: yes # Adds pretty-indentation whitespaces to output (false by default)
+  # Enable or disable minifying of result js / css files.
+  minify: true

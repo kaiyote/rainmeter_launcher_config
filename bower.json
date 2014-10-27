@@ -10,5 +10,10 @@
   "dependencies": {
     "components-underscore": "~1.7.0",
     "mithril": "~0.1.22"
+  },
+  "overrides": {
+    "mithril": {
+      "main": "mithril.js"
+    }
   }
 }
