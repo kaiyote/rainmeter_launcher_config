@@ -25,7 +25,7 @@ MainCtrl =
       , 'Reorder'
     ]
   ]
-  
+
   controller: class
     constructor: ->
       gui = require 'nw.gui'
@@ -37,10 +37,10 @@ MainCtrl =
           '/remove': RemoveCtrl
           '/reorder': ReorderCtrl
           '/edit': EditCtrl
-          
+
     close: ->
       do @window.close
-      
+
     isActive: (route) ->
       if route is do m.route
         return 'active'

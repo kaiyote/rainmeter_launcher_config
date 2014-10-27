@@ -6,12 +6,12 @@ AddCtrl =
         onchange: (evt) -> m.withAttr evt.target.value, ctrl.section
         value: do ctrl.section
       , ini.groups().map (group) ->
-        m 'option', value: group, group
+        m 'option', {value: group}, group
       m 'div'
     ]
     m 'label', [
       m 'span.long', 'Or make a new one:'
-      m 'input', onchange: m.withAttr 'value', ctrl.section
+      m 'input', {onchange: m.withAttr 'value', ctrl.section}
       m 'div'
     ]
     m 'label', [
@@ -54,21 +54,21 @@ AddCtrl =
     m 'input#icon.hidden[type="file"][accept=".jpg,.jpeg,.ico,.png"]'
     m 'input#action.hidden[type="file"][accept=".exe"]'
   ]
-  
+
   controller: class
     constructor: ->
       @section = m.prop 'RPG'
       @name = m.prop ''
       @icon = m.prop ''
       @action = m.prop ''
-      
+
     save: ->
       unless do @name is '' or do @icon is '' or do @action is ''
         ini.addGroup do @section if -1 is ini.groups().indexOf do @section
         ini.addLauncher do @section, do @name, do @icon, do @action
         do window.ini.save
         do @clear
-        
+
     openFile: (isAction) ->
       file = document.querySelector if isAction then '#action' else '#icon'
       file.onchange = =>
@@ -76,7 +76,7 @@ AddCtrl =
         file.value = ''
         do m.redraw
       do file.click
-      
+
     clear: ->
       @name ''
       @icon ''
